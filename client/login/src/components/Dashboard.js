@@ -9,7 +9,7 @@ const Dashboard = ({setAuth}) =>{
 
 	const getName = async () => {
 		try{
-			const res = await fetch("/dashboard/", {
+			const res = await fetch("/dashboard/name", {
         		method: "GET",
         		headers: { jwtToken: localStorage.token }
       		});
