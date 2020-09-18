@@ -1,5 +1,5 @@
 # gitforked
-Micro Service Health Ecosystem
+A react full stack boilerplate application deployed with Docker. 
 # Getting Started
 1. Install requirements & checkout repo
 2. cd launch
