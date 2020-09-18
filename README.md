@@ -1,4 +1,4 @@
-# gitforked
+# Docker-boilerplate
 A react full stack boilerplate application deployed with Docker. 
 # Getting Started
 1. Install requirements & checkout repo
