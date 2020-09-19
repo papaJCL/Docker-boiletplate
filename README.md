@@ -1,10 +1,15 @@
 # Docker-boilerplate
-A react full stack boilerplate login application deployed with Docker. 
+A PERN stack boilerplate login application deployed with Docker. 
 
 ![Image of Login](https://raw.githubusercontent.com/papaJCL/Docker-boiletplate/master/loginpic.png)
 
 ### Features
-Testing
+- JWTAuthentication
+- Redux State Management
+- Encrypted Database
+- Can reload without crashing
+- Styled-components examples
+
 
 
 # Getting Started
