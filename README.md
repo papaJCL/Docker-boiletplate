@@ -1,5 +1,9 @@
 # Docker-boilerplate
 A react full stack boilerplate application deployed with Docker. 
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
+
 # Getting Started
 1. Install requirements & checkout repo
 2. Build devbox container 
