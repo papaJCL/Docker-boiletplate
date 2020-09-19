@@ -3,6 +3,9 @@ A react full stack boilerplate login application deployed with Docker.
 
 ![Image of Login](https://raw.githubusercontent.com/papaJCL/Docker-boiletplate/master/loginpic.png)
 
+### Features
+Testing
+
 
 # Getting Started
 1. Install requirements & checkout repo
