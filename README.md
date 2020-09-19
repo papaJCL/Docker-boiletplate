@@ -1,5 +1,5 @@
 # Docker-boilerplate
-A PERN stack boilerplate login application deployed with Docker. 
+A PERN Stack Boilerplate Login Application Attached with a Docker Container. 
 
 ![Image of Login](https://raw.githubusercontent.com/papaJCL/Docker-boiletplate/master/loginpic.png)
 
@@ -23,7 +23,7 @@ A PERN stack boilerplate login application deployed with Docker.
         - <ctrl + c> if you didn't detach
         - "docker-compose down" if you did detach
         
-## Additional Comments
+# Additional Comments
 Hot-loading currently not supported. To load new changes do:
 - ```docker exec -it node1 sh ```
 - ```npm run build```
