@@ -1,6 +1,48 @@
 import React, { useEffect, useState , Fragment } from "react";
-import MealCalendar from './mealCalendar/MealCalendar';
-import { toast } from "react-toastify";
+import styled from 'styled-components'
+
+const Header = styled.h1`
+  font-size:1.5rem;
+  text-align: center;
+  font-weight:300;
+  padding-top: 15px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+`
+
+const SubColorText = styled.span`
+	color:#2F4F4F;
+	font-weight:150;
+	font-size:1.2rem;
+`
+
+const Background = styled.div`
+  background-color: #fafafa !important; 
+  display:block;
+	width:100%;
+	text-align:center;
+	height: 100vh;
+`
+
+const Button = styled.button`
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 100px;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: #4974a5;
+  color: #fafafa;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform .1s linear;
+
+  &:hover {
+        transform: scale(1.05);
+    },
+`
 
 const Dashboard = ({setAuth}) =>{
 
@@ -41,12 +83,13 @@ const Dashboard = ({setAuth}) =>{
 
 
 	return(
-		<Fragment>
-			<h1>Dashboard</h1>
-			<p>Welcome to the site : {name} </p>
-			<MealCalendar/>
-			<button onClick={e => logout(e)} className="btn btn-primary">Logout</button>
-		</Fragment>
+		<Background>
+			<div className="container">
+			<br/>
+			<Header>Welcome to the site: <SubColorText>{name}</SubColorText></Header>
+			<Button onClick={e => logout(e)} >Logout</Button>
+			</div>
+		</Background>
 	);
 }
 

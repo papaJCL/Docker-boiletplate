@@ -1,5 +1,4 @@
 import React, { useEffect, useState , Fragment } from "react";
-import { toast } from "react-toastify";
 import { Link, Redirect } from "react-router-dom";
 import styled from 'styled-components'
 
@@ -20,7 +19,6 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
 `
 
 const Box = styled.div`
