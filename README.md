@@ -3,7 +3,7 @@ A PERN stack boilerplate login application deployed with Docker.
 
 ![Image of Login](https://raw.githubusercontent.com/papaJCL/Docker-boiletplate/master/loginpic.png)
 
-### Features
+# Features
 - JWTAuthentication
 - Redux State Management
 - Encrypted Database
