@@ -6,29 +6,31 @@
     "start": "node ./bin/www.js",
     "build": "webpack --mode development",
     "db-setup": "node ./bin/dbSetup.js",
-    "test": "echo \"Work on finding a testing framework\""
+    "test": "echo \"Work on finding a testing framework\"",
+    "dev": "react-scripts start"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
     "async": "^3.2.0",
+    "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "fs": "0.0.1-security",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "pg": "^7.18.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-toastify": "^6.0.8",
-    "jsonwebtoken": "^8.5.1",
-    "dotenv": "^8.2.0",
-    "bcrypt": "^5.0.0"
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
