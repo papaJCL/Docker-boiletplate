@@ -1,5 +1,5 @@
 # Docker-boilerplate
-A react full stack boilerplate application deployed with Docker. 
+A react full stack boilerplate login application deployed with Docker. 
 
 ![Image of Login](https://raw.githubusercontent.com/papaJCL/Docker-boiletplate/master/loginpic.png)
 
