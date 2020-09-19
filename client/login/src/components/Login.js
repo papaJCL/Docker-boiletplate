@@ -1,6 +1,30 @@
 import React, { useEffect, useState , Fragment} from "react";
-import { toast } from "react-toastify";
 import { Link, Redirect } from "react-router-dom";
+import styled from 'styled-components'
+
+export const Header = styled.h1`
+  font-size:2.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight:700;
+  margin-top:1.5em;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 2px;
+`
+
+export const AboutStyles = styled.div`
+  align-items: center;
+    background: red no-repeat center center ;
+    //background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    //flex-wrap: wrap;
+    overflow-x: hidden;
+`
+
 
 const Login = ({setAuth}) =>{
 	
@@ -44,8 +68,8 @@ const Login = ({setAuth}) =>{
 	}
 
 	return(
-		<Fragment> 
-			<h1 className="mt-5 text-center">Login</h1>
+    <AboutStyles>
+			<Header> Login</Header>
 			<form onSubmit={onSubmitForm}>
         		<input
         			placeholder="email" 
@@ -53,7 +77,6 @@ const Login = ({setAuth}) =>{
           			name="email"
           			value={email}
           			onChange={e => onChange(e)}
-          			className="form-control my-3"
         		/>
         		<input
         			placeholder="password" 
@@ -61,12 +84,11 @@ const Login = ({setAuth}) =>{
           			name="password"
           			value={password}
           			onChange={e => onChange(e)}
-          			className="form-control my-3"
         		/>
-        		<button className="btn btn-success btn-block">Submit</button>
+        		<button>Submit</button>
       		</form>
 			<Link to="/register">register</Link>
-		</Fragment>
+      </AboutStyles>
 	);
 }
 

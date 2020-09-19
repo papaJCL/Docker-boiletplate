@@ -35,7 +35,6 @@ function App() {
   }, []);
 
   return (
-    <Fragment>
       <Router>
         <div className="container">
           <Switch>
@@ -86,7 +85,6 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </Fragment>
   );
 }
 
