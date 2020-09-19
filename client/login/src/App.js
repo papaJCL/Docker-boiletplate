@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "./actions";
 
 function App() {
 
-  const [isAuthenticated, setisAuthenticated] = useState(false);
+  const dispatch = useDispatch();
+  const isLogged = useSelector(state => state.isLogged);
 
-  const setAuth = (boolean) => {
-    setisAuthenticated(boolean);
-  }
 
   const checkAuthenticated = async(e) => {
     try{
@@ -21,7 +21,7 @@ function App() {
       });
       const parseRes = await res.json();
 
-      parseRes === true ? setisAuthenticated(true) : setisAuthenticated(false);
+      parseRes === true ? dispatch(auth(true)) : dispatch(auth(false));
 
     }
     catch(err){
@@ -34,16 +34,16 @@ function App() {
     checkAuthenticated();
   }, []);
 
+
   return (
-      <Router>
-        <div className="container">
+       <Router>
           <Switch>
           <Route
             exact
             path="/"
             render={props =>
-              !isAuthenticated ? (
-                <Login {...props} setAuth={setAuth} />
+              !isLogged ? (
+                <Login {...props}  />
               ) : (
                 <Redirect to="/dashboard" />
               )
@@ -53,8 +53,8 @@ function App() {
               exact
               path="/login"
               render={props =>
-                !isAuthenticated ? (
-                  <Login {...props} setAuth={setAuth} />
+                !isLogged ? (
+                  <Login {...props} />
                 ) : (
                   <Redirect to="/dashboard" />
                 )
@@ -64,8 +64,8 @@ function App() {
               exact
               path="/register"
               render={props =>
-                !isAuthenticated ? (
-                  <Register {...props} setAuth={setAuth} />
+                !isLogged ? (
+                  <Register {...props} />
                 ) : (
                   <Redirect to="/dashboard" />
                 )
@@ -75,15 +75,14 @@ function App() {
               exact
               path="/dashboard"
               render={props =>
-                isAuthenticated ? (
-                  <Dashboard {...props} setAuth={setAuth} />
+                isLogged ? (
+                  <Dashboard {...props}/>
                 ) : (
                   <Redirect to="/login" />
                 )
               }
             />
           </Switch>
-        </div>
       </Router>
   );
 }

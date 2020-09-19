@@ -1,5 +1,7 @@
 import React, { useEffect, useState , Fragment } from "react";
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../../src/actions";
 
 const Header = styled.h1`
   font-size:1.5rem;
@@ -19,9 +21,9 @@ const SubColorText = styled.span`
 const Background = styled.div`
   background-color: #fafafa !important; 
   display:block;
-	width:100%;
-	text-align:center;
-	height: 100vh;
+  width:100%;
+  text-align:center;
+  height: 100vh;
 `
 
 const Button = styled.button`
@@ -44,8 +46,9 @@ const Button = styled.button`
     },
 `
 
-const Dashboard = ({setAuth}) =>{
+const Dashboard = () =>{
 
+	const dispatch = useDispatch();
 
 	const [name, setName] = useState("")
 
@@ -60,7 +63,7 @@ const Dashboard = ({setAuth}) =>{
       		setName(parseData.user_name);
 		}
 		catch(err){
-
+			console.error(err.message);
 		}
 	}
 
@@ -68,7 +71,7 @@ const Dashboard = ({setAuth}) =>{
     	e.preventDefault();
     	try {
       		localStorage.removeItem("token");
-      		setAuth(false);
+      		dispatch(auth(false));
     	}
     	catch (err) {
       		console.error(err.message);

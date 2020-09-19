@@ -1,6 +1,8 @@
 import React, { useEffect, useState , Fragment} from "react";
 import { Link, Redirect } from "react-router-dom";
 import styled from 'styled-components'
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../../src/actions";
 
 const Header = styled.h1`
   font-size:2.5rem;
@@ -88,46 +90,48 @@ const StyledLink = styled(Link)`
 `;
 
 
-const Login = ({setAuth}) =>{
+const Login = () =>{
 	
-	const [inputs, setInputs] = useState({
-    	email: "",
-    	password: ""
-  	});
+	const dispatch = useDispatch();
+  
+  const [inputs, setInputs] = useState({
+      email: "",
+      password: ""
+    });
 
-  	const { email, password } = inputs;
+    const { email, password } = inputs;
 
-  	const onChange = (e) => {
-		setInputs({...inputs , [e.target.name] : e.target.value})
-	}
+    const onChange = (e) => {
+    setInputs({...inputs , [e.target.name] : e.target.value})
+  }
 
-	const onSubmitForm = async(e) => {
-		e.preventDefault();
-		const body = { email, password };
-		
-		try{
-			const response = await fetch("/auth/login",
-        		{
-          			method: "POST",
-          			headers: {"Content-type": "application/json"},
-          			body: JSON.stringify(body)
-        		}
-        	);
-        	const parseRes = await response.json();
+  const onSubmitForm = async(e) => {
+    e.preventDefault();
+    const body = { email, password };
+    
+    try{
+      const response = await fetch("/auth/login",
+            {
+                method: "POST",
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify(body)
+            }
+          );
+          const parseRes = await response.json();
 
-        	if (parseRes.jwtToken) {
-        		localStorage.setItem("token", parseRes.jwtToken);
-        		setAuth(true);
-      		} else {
-      			console.log(parseRes)
-        		setAuth(false);
-      		}
+          if (parseRes.jwtToken) {
+            localStorage.setItem("token", parseRes.jwtToken);
+            dispatch(auth(true));
+          } else {
+            console.log(parseRes)
+            dispatch(auth(false));
+          }
 
-		}
-		catch(err){
-			console.error(err)
-		}
-	}
+    }
+    catch(err){
+      console.error(err)
+    }
+  }
 
 	return(
     <Background>

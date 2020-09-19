@@ -1,6 +1,8 @@
 import React, { useEffect, useState , Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../../src/actions";
 
 const Header = styled.h1`
   font-size:2.5rem;
@@ -86,7 +88,9 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Register = ({setAuth}) =>{
+const Register = () =>{
+
+	const dispatch = useDispatch();
 
 	const [inputs, setInputs] = useState({
 		email: "",
@@ -116,7 +120,7 @@ const Register = ({setAuth}) =>{
 
         	localStorage.setItem("token" , parseRes.jwtToken);
 
-        	setAuth(true);
+        	dispatch(auth(true));
 		}
 		catch(err){
 			console.error(err.message)
