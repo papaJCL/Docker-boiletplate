@@ -1,7 +1,7 @@
 # Docker-boilerplate
 A react full stack boilerplate application deployed with Docker. 
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Login](hhttps://raw.githubusercontent.com/papaJCL/Docker-boiletplate/master/loginpic.png)
 
 
 # Getting Started
